@@ -87,6 +87,12 @@ export default function Closing() {
     }
   };
 
+  // CTA suave: scroll a la sección del precio (sin cambiar la URL).
+  const handleScrollToCta = () => {
+    const el = document.getElementById("final-cta-section");
+    if (el) el.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <>
       {/* Motivational Closing */}
@@ -168,14 +174,14 @@ export default function Closing() {
               {finalCta.viewers}
             </p>
 
-            <a
-              href={checkoutUrl}
-              onClick={handleBeginCheckout}
+            <button
+              type="button"
+              onClick={handleScrollToCta}
               className="inline-flex items-center justify-center gap-2 bg-[#28a745] hover:bg-[#218838] text-white font-bold py-5 md:py-6 px-8 md:px-12 rounded-xl shadow-[0_8px_30px_rgba(34,197,94,0.4)] hover:shadow-[0_12px_40px_rgba(34,197,94,0.6)] text-lg md:text-xl w-full border-b-4 border-[#1e7e34] transition-all duration-300 cursor-pointer hover:scale-[1.02] active:scale-[0.98]"
             >
               <ShoppingCart className="w-6 h-6" />
               {closing.button}
-            </a>
+            </button>
 
             <p className="text-gray-400 text-sm mt-3">{finalCta.afterButton}</p>
 
